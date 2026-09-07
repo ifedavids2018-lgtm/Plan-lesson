@@ -1,0 +1,6 @@
+{
+  "name": "AI Teacher Lesson Planner",
+  "description": "AI-powered lesson planning, quizzes, homework generator, and weekly timetable for primary and secondary school teachers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

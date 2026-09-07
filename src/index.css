@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@media print {
+  header,
+  aside,
+  nav,
+  #mobile-bottom-nav,
+  #pwa-install-btn,
+  #pwa-install-ios-btn,
+  #offline-banner,
+  button,
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt !important;
+  }
+
+  main {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .border {
+    border-color: #cbd5e1 !important;
+  }
+
+  /* Prevent page breaks inside cards */
+  div[id^="section-"] {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    margin-bottom: 1rem !important;
+  }
+}

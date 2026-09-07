@@ -1,0 +1,497 @@
+{
+  "teachers": [
+    {
+      "id": "teacher-demo-001",
+      "name": "Mrs. Aisha Ibrahim",
+      "email": "aisha.ibrahim@school.ng",
+      "password_hash": "password123",
+      "school_name": "ABC Secondary School",
+      "role": "teacher",
+      "subscription_plan": "free",
+      "subjects_taught": [
+        "Biology",
+        "Basic Science"
+      ],
+      "classes_taught": [
+        "JSS3",
+        "SS1",
+        "SS2"
+      ],
+      "curriculum": "Nigerian Curriculum",
+      "created_at": "2026-09-02T15:53:27.667Z",
+      "updated_at": "2026-09-02T15:53:27.667Z"
+    }
+  ],
+  "classes": [
+    {
+      "id": "class-1",
+      "name": "Primary 1",
+      "is_custom": false,
+      "created_by": null
+    },
+    {
+      "id": "class-2",
+      "name": "Primary 2",
+      "is_custom": false,
+      "created_by": null
+    },
+    {
+      "id": "class-3",
+      "name": "Primary 3",
+      "is_custom": false,
+      "created_by": null
+    },
+    {
+      "id": "class-4",
+      "name": "Primary 4",
+      "is_custom": false,
+      "created_by": null
+    },
+    {
+      "id": "class-5",
+      "name": "Primary 5",
+      "is_custom": false,
+      "created_by": null
+    },
+    {
+      "id": "class-6",
+      "name": "Primary 6",
+      "is_custom": false,
+      "created_by": null
+    },
+    {
+      "id": "class-7",
+      "name": "JSS1",
+      "is_custom": false,
+      "created_by": null
+    },
+    {
+      "id": "class-8",
+      "name": "JSS2",
+      "is_custom": false,
+      "created_by": null
+    },
+    {
+      "id": "class-9",
+      "name": "JSS3",
+      "is_custom": false,
+      "created_by": null
+    },
+    {
+      "id": "class-10",
+      "name": "SS1",
+      "is_custom": false,
+      "created_by": null
+    },
+    {
+      "id": "class-11",
+      "name": "SS2",
+      "is_custom": false,
+      "created_by": null
+    },
+    {
+      "id": "class-12",
+      "name": "SS3",
+      "is_custom": false,
+      "created_by": null
+    }
+  ],
+  "subjects": [
+    {
+      "id": "subj-1",
+      "name": "Mathematics",
+      "is_custom": false,
+      "created_by": null
+    },
+    {
+      "id": "subj-2",
+      "name": "English Language",
+      "is_custom": false,
+      "created_by": null
+    },
+    {
+      "id": "subj-3",
+      "name": "Biology",
+      "is_custom": false,
+      "created_by": null
+    },
+    {
+      "id": "subj-4",
+      "name": "Chemistry",
+      "is_custom": false,
+      "created_by": null
+    },
+    {
+      "id": "subj-5",
+      "name": "Physics",
+      "is_custom": false,
+      "created_by": null
+    },
+    {
+      "id": "subj-6",
+      "name": "Agricultural Science",
+      "is_custom": false,
+      "created_by": null
+    },
+    {
+      "id": "subj-7",
+      "name": "Economics",
+      "is_custom": false,
+      "created_by": null
+    },
+    {
+      "id": "subj-8",
+      "name": "Geography",
+      "is_custom": false,
+      "created_by": null
+    },
+    {
+      "id": "subj-9",
+      "name": "Government",
+      "is_custom": false,
+      "created_by": null
+    },
+    {
+      "id": "subj-10",
+      "name": "Civic Education",
+      "is_custom": false,
+      "created_by": null
+    }
+  ],
+  "lesson_plans": [
+    {
+      "id": "lesson-sample-001",
+      "teacher_id": "teacher-demo-001",
+      "class_name_snapshot": "SS1",
+      "subject_name_snapshot": "Biology",
+      "topic": "Nutrition",
+      "duration_option": "40",
+      "duration_minutes_custom": null,
+      "lesson_date": "2026-09-01",
+      "term": "First Term",
+      "week": 3,
+      "lesson_number": 1,
+      "learning_objectives_input": "1. Define nutrition.\n2. Identify classes of food.\n3. Explain the importance of a balanced diet.",
+      "previous_knowledge_input": "Students have basic knowledge of food and digestion from Junior Secondary Basic Science.",
+      "teaching_method": "Discussion & Demonstration",
+      "resources_input": "Charts of food groups, fresh samples (apple, bread, beans), Whiteboard",
+      "curriculum_standard": "NERDC National Curriculum for Senior Secondary Biology",
+      "teacher_notes": "Encourage students to relate nutritional concepts to local staple Nigerian meals.",
+      "learning_objectives": [
+        "Define nutrition accurately in biological terms.",
+        "Identify the six main classes of food and provide local Nigerian examples for each.",
+        "Explain the components and health benefits of a balanced diet for adolescent growth."
+      ],
+      "previous_knowledge": "Students recall from JSS3 Basic Science that living organisms require food for energy, growth, and cellular repair.",
+      "instructional_materials": [
+        "Biological chart showing the 6 classes of nutrients",
+        "Specimens of common staple foodstuffs (cassava, beans, groundnuts, oranges)",
+        "Whiteboard markers and lesson summary flashcards"
+      ],
+      "introduction": "Begin by asking students what they had for breakfast this morning. Contrast an all-carbohydrate meal with a balanced breakfast. Introduce nutrition as the biochemical and physiological process by which an organism acquires and assimilates nutrients for survival.",
+      "lesson_content": "Nutrition is classified into Autotrophic and Heterotrophic nutrition. Humans are heterotrophic and rely on six nutrient classes: Carbohydrates, Proteins, Lipids, Vitamins, Minerals, and Water. A balanced diet contains all these classes in the correct proportions required by the body.",
+      "teaching_activities": [
+        {
+          "step_title": "Step 1 — Introduction & Hook (5 mins)",
+          "description": "Prompt learners with everyday dietary choices and lead them into defining nutrition."
+        },
+        {
+          "step_title": "Step 2 — Nutrient Classes & Sources (12 mins)",
+          "description": "Display charts and physical food specimens. Detail the biochemical roles of Carbohydrates, Proteins, and Fats with Nigerian culinary examples."
+        },
+        {
+          "step_title": "Step 3 — Micronutrients & Water (8 mins)",
+          "description": "Highlight the protective role of Vitamins (A, C, D) and Minerals (Iron, Calcium) along with water balance."
+        },
+        {
+          "step_title": "Step 4 — Balanced Diet Analysis (10 mins)",
+          "description": "Guide students in evaluating a standard Nigerian meal (e.g. Rice, Beans, Fish, and Vegetable Stew) against nutritional benchmarks."
+        },
+        {
+          "step_title": "Step 5 — Evaluation & Wrap-up (5 mins)",
+          "description": "Recap key concepts and administer spot comprehension checks."
+        }
+      ],
+      "student_activities": [
+        "Pair-share discussion: list three common foods eaten at home and classify their predominant nutrients.",
+        "Examine the food chart and note down deficiency diseases associated with protein and vitamin shortages.",
+        "Construct a sample one-day balanced meal plan suitable for an SS1 student."
+      ],
+      "assessment": "1. What is nutrition?\n2. Mention 4 classes of food and two sources of each.\n3. State two symptoms of protein deficiency (Kwashiorkor).",
+      "conclusion": "Nutrition is fundamental to cell metabolism and vitality. A varied diet containing all 6 essential classes prevents deficiency diseases and promotes optimal physical and cognitive development.",
+      "homework_summary": "Design a weekly balanced breakfast table for your household using affordable local foodstuffs, highlighting the primary nutrient provided by each dish.",
+      "status": "saved",
+      "is_ai_generated": true,
+      "created_at": "2026-09-02T15:53:27.667Z",
+      "updated_at": "2026-09-02T15:53:27.667Z"
+    }
+  ],
+  "lesson_plan_revisions": [],
+  "quizzes": [
+    {
+      "id": "quiz-sample-001",
+      "lesson_plan_id": "lesson-sample-001",
+      "teacher_id": "teacher-demo-001",
+      "title": "SS1 Biology Nutrition Mastery Quiz",
+      "topic": "Nutrition",
+      "class_name": "SS1",
+      "subject_name": "Biology",
+      "question_type": "multiple_choice",
+      "difficulty": "medium",
+      "requested_question_count": 5,
+      "questions": [
+        {
+          "id": "q-1",
+          "order_index": 1,
+          "question_text": "Which of the following is a primary class of organic food responsible for tissue building and repair?",
+          "question_type": "multiple_choice",
+          "options": [
+            {
+              "label": "A",
+              "text": "Water"
+            },
+            {
+              "label": "B",
+              "text": "Protein"
+            },
+            {
+              "label": "C",
+              "text": "Carbon dioxide"
+            },
+            {
+              "label": "D",
+              "text": "Oxygen"
+            }
+          ],
+          "correct_answer": "B",
+          "explanation": "Proteins are composed of amino acids and serve as the essential structural material for growth and tissue repair.",
+          "is_ai_generated": true
+        },
+        {
+          "id": "q-2",
+          "order_index": 2,
+          "question_text": "Which nutritional deficiency in young children is predominantly caused by a severe lack of dietary protein?",
+          "question_type": "multiple_choice",
+          "options": [
+            {
+              "label": "A",
+              "text": "Scurvy"
+            },
+            {
+              "label": "B",
+              "text": "Rickets"
+            },
+            {
+              "label": "C",
+              "text": "Kwashiorkor"
+            },
+            {
+              "label": "D",
+              "text": "Night blindness"
+            }
+          ],
+          "correct_answer": "C",
+          "explanation": "Kwashiorkor results from severe protein deficiency, characterized by edema, swollen abdomen, and muscle wasting.",
+          "is_ai_generated": true
+        },
+        {
+          "id": "q-3",
+          "order_index": 3,
+          "question_text": "Which mineral is required for the synthesis of hemoglobin in human red blood cells?",
+          "question_type": "multiple_choice",
+          "options": [
+            {
+              "label": "A",
+              "text": "Calcium"
+            },
+            {
+              "label": "B",
+              "text": "Iron"
+            },
+            {
+              "label": "C",
+              "text": "Sodium"
+            },
+            {
+              "label": "D",
+              "text": "Phosphorus"
+            }
+          ],
+          "correct_answer": "B",
+          "explanation": "Iron is the central trace mineral in hemoglobin necessary for binding and transporting oxygen throughout the body.",
+          "is_ai_generated": true
+        },
+        {
+          "id": "q-4",
+          "order_index": 4,
+          "question_text": "Organisms that can synthesize their own organic food from simple inorganic compounds are termed:",
+          "question_type": "multiple_choice",
+          "options": [
+            {
+              "label": "A",
+              "text": "Autotrophs"
+            },
+            {
+              "label": "B",
+              "text": "Heterotrophs"
+            },
+            {
+              "label": "C",
+              "text": "Saprotrophs"
+            },
+            {
+              "label": "D",
+              "text": "Parasites"
+            }
+          ],
+          "correct_answer": "A",
+          "explanation": "Autotrophs (such as green photosynthetic plants) manufacture their own nutrients using sunlight or chemical energy.",
+          "is_ai_generated": true
+        },
+        {
+          "id": "q-5",
+          "order_index": 5,
+          "question_text": "Which vitamin is synthesized in human skin upon exposure to sunlight?",
+          "question_type": "multiple_choice",
+          "options": [
+            {
+              "label": "A",
+              "text": "Vitamin C"
+            },
+            {
+              "label": "B",
+              "text": "Vitamin K"
+            },
+            {
+              "label": "C",
+              "text": "Vitamin D"
+            },
+            {
+              "label": "D",
+              "text": "Vitamin B12"
+            }
+          ],
+          "correct_answer": "C",
+          "explanation": "Sunlight triggers the dermal photolysis of 7-dehydrocholesterol to produce cholecalciferol (Vitamin D3).",
+          "is_ai_generated": true
+        }
+      ],
+      "created_at": "2026-09-02T15:53:27.667Z",
+      "updated_at": "2026-09-02T15:53:27.667Z"
+    }
+  ],
+  "homework": [
+    {
+      "id": "hw-sample-001",
+      "lesson_plan_id": "lesson-sample-001",
+      "teacher_id": "teacher-demo-001",
+      "topic": "Nutrition",
+      "class_name": "SS1",
+      "subject_name": "Biology",
+      "homework_type": "questions",
+      "difficulty": "medium",
+      "requested_item_count": 5,
+      "title": "SS1 Biology Homework: Dietary Analysis & Nutrient Functions",
+      "overview": "Complete the following structured questions in your Biology assignment exercise notebook.",
+      "items": [
+        {
+          "id": "hw-item-1",
+          "prompt": "Define the term \"Balanced Diet\" and state three biological reasons why it is critical for adolescent health.",
+          "expected_answer": "A diet containing all 6 classes of food in proper proportions. Essential for physical growth, immune defense, and cognitive energy."
+        },
+        {
+          "id": "hw-item-2",
+          "prompt": "Differentiate between autotrophic and heterotrophic nutrition, providing two examples of organisms in each category.",
+          "expected_answer": "Autotrophs make their own food (e.g. maize plant, algae); heterotrophs ingest organic matter (e.g. humans, fungi)."
+        },
+        {
+          "id": "hw-item-3",
+          "prompt": "List the chemical test used in the laboratory to detect reducing sugars like glucose in a food sample.",
+          "expected_answer": "Benedict's or Fehling's test, which yields a brick-red precipitate upon heating."
+        },
+        {
+          "id": "hw-item-4",
+          "prompt": "Explain the distinct biological roles of Vitamin A and Vitamin C in maintaining the human body.",
+          "expected_answer": "Vitamin A supports retinal rhodopsin for night vision; Vitamin C supports collagen synthesis and scurvy prevention."
+        },
+        {
+          "id": "hw-item-5",
+          "prompt": "Describe how a family can compose a nutritious, balanced meal using affordable local Nigerian ingredients.",
+          "expected_answer": "For example, beans porridge (protein) with palm oil (lipids), sweet potato (carbohydrates), ugwu leaves (vitamins/iron), and clean drinking water."
+        }
+      ],
+      "submission_guidelines": "Due on Friday before 8:30 AM during morning assembly. Neatly written in your blue assignment book.",
+      "is_ai_generated": true,
+      "created_at": "2026-09-02T15:53:27.668Z",
+      "updated_at": "2026-09-02T15:53:27.668Z"
+    }
+  ],
+  "timetable_slots": [
+    {
+      "id": "slot-1",
+      "teacher_id": "teacher-demo-001",
+      "day_of_week": "monday",
+      "start_time": "08:00",
+      "end_time": "08:40",
+      "class_name": "SS1",
+      "subject_name": "Biology",
+      "lesson_plan_id": "lesson-sample-001",
+      "lesson_title": "Nutrition",
+      "created_at": "2026-09-02T15:53:27.668Z",
+      "updated_at": "2026-09-02T15:53:27.668Z"
+    },
+    {
+      "id": "slot-2",
+      "teacher_id": "teacher-demo-001",
+      "day_of_week": "monday",
+      "start_time": "09:00",
+      "end_time": "09:40",
+      "class_name": "SS2",
+      "subject_name": "Biology",
+      "lesson_plan_id": null,
+      "lesson_title": null,
+      "created_at": "2026-09-02T15:53:27.668Z",
+      "updated_at": "2026-09-02T15:53:27.668Z"
+    },
+    {
+      "id": "slot-3",
+      "teacher_id": "teacher-demo-001",
+      "day_of_week": "tuesday",
+      "start_time": "10:00",
+      "end_time": "10:40",
+      "class_name": "JSS3",
+      "subject_name": "Basic Science",
+      "lesson_plan_id": null,
+      "lesson_title": null,
+      "created_at": "2026-09-02T15:53:27.668Z",
+      "updated_at": "2026-09-02T15:53:27.668Z"
+    },
+    {
+      "id": "slot-4",
+      "teacher_id": "teacher-demo-001",
+      "day_of_week": "wednesday",
+      "start_time": "08:00",
+      "end_time": "08:40",
+      "class_name": "SS1",
+      "subject_name": "Biology",
+      "lesson_plan_id": "lesson-sample-001",
+      "lesson_title": "Nutrition",
+      "created_at": "2026-09-02T15:53:27.668Z",
+      "updated_at": "2026-09-02T15:53:27.668Z"
+    },
+    {
+      "id": "slot-5",
+      "teacher_id": "teacher-demo-001",
+      "day_of_week": "thursday",
+      "start_time": "11:00",
+      "end_time": "11:40",
+      "class_name": "SS2",
+      "subject_name": "Biology",
+      "lesson_plan_id": null,
+      "lesson_title": null,
+      "created_at": "2026-09-02T15:53:27.668Z",
+      "updated_at": "2026-09-02T15:53:27.668Z"
+    }
+  ],
+  "export_events": []
+}
