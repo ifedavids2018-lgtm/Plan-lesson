@@ -31,14 +31,17 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate, onSele
   const [recentLessons, setRecentLessons] = useState<LessonPlan[]>([]);
   const [loading, setLoading] = useState(true);
 
+  const teacherName = teacher?.name?.trim();
+  const teacherSchool = teacher?.school_name?.trim();
+  const greetingName = teacherName || 'Teacher';
+
   useEffect(() => {
     async function loadData() {
-      if (!teacher) return;
       try {
         setLoading(true);
         const [statsData, lessonsData] = await Promise.all([
-          fetchStats(teacher.id),
-          fetchLessons({ teacher_id: teacher.id }),
+          fetchStats(teacher?.id),
+          fetchLessons(teacher?.id ? { teacher_id: teacher.id } : undefined),
         ]);
         setStats(statsData);
         setRecentLessons(lessonsData.slice(0, 4));
@@ -60,11 +63,35 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate, onSele
             <Sparkles className="w-3.5 h-3.5 text-amber-300" />
             <span>AI Curriculum Engine Active</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
-            Welcome, {teacher?.name || 'Teacher'} 👋
+          <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight flex flex-wrap items-center gap-2">
+            <span>Welcome, {greetingName} 👋</span>
+            {!teacherName && (
+              <button
+                type="button"
+                onClick={() => onNavigate('profile')}
+                className="text-xs font-normal text-blue-200 hover:text-white underline underline-offset-2 transition"
+                title="Add your name to your profile"
+              >
+                (Set your name)
+              </button>
+            )}
           </h1>
-          <p className="mt-2 text-sm sm:text-base text-blue-100/90 leading-relaxed">
-            What would you like to prepare for your classes at {teacher?.school_name || 'your school'} today?
+          <p className="mt-2 text-sm sm:text-base text-blue-100/90 leading-relaxed flex flex-wrap items-center gap-1.5">
+            <span>
+              {teacherSchool
+                ? `What would you like to prepare for your classes at ${teacherSchool} today?`
+                : 'What would you like to prepare for your classes today?'}
+            </span>
+            {!teacherSchool && (
+              <button
+                type="button"
+                onClick={() => onNavigate('profile')}
+                className="text-xs text-blue-200 hover:text-white underline underline-offset-2 transition font-medium"
+                title="Add your school name to your profile"
+              >
+                (Add school)
+              </button>
+            )}
           </p>
 
           <div className="mt-5 flex flex-wrap items-center gap-3">

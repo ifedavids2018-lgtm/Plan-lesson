@@ -1,0 +1,125 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // 1. Global Safety Net: Default-deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper Primitives
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() > 0 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    // Entity Validators
+    function isValidTeacher(data) {
+      return data.id is string &&
+        data.id.size() <= 128 &&
+        (!('name' in data) || (data.name is string && data.name.size() <= 200)) &&
+        (!('email' in data) || (data.email is string && data.email.size() <= 200)) &&
+        (!('school_name' in data) || (data.school_name is string && data.school_name.size() <= 250)) &&
+        (!('role' in data) || (data.role is string && (data.role == 'teacher' || data.role == 'admin'))) &&
+        (!('curriculum' in data) || (data.curriculum is string && data.curriculum.size() <= 150));
+    }
+
+    function isValidLesson(data, teacherId) {
+      return data.teacher_id == teacherId &&
+        data.topic is string && data.topic.size() > 0 && data.topic.size() <= 500 &&
+        data.class_name_snapshot is string && data.class_name_snapshot.size() <= 150 &&
+        data.subject_name_snapshot is string && data.subject_name_snapshot.size() <= 150;
+    }
+
+    function isValidQuiz(data, teacherId) {
+      return data.teacher_id == teacherId &&
+        data.title is string && data.title.size() > 0 && data.title.size() <= 500 &&
+        data.questions is list && data.questions.size() <= 100;
+    }
+
+    function isValidHomework(data, teacherId) {
+      return data.teacher_id == teacherId &&
+        data.title is string && data.title.size() > 0 && data.title.size() <= 500 &&
+        data.questions is list && data.questions.size() <= 100;
+    }
+
+    function isValidTimetable(data, teacherId) {
+      return data.teacher_id == teacherId &&
+        data.day_of_week is string && data.day_of_week.size() <= 50 &&
+        data.start_time is string && data.start_time.size() <= 20 &&
+        data.end_time is string && data.end_time.size() <= 20 &&
+        data.class_name is string && data.class_name.size() <= 100 &&
+        data.subject_name is string && data.subject_name.size() <= 100;
+    }
+
+    // Connection Healthcheck Document
+    match /test/{testId} {
+      allow get: if true;
+    }
+
+    // Teacher Domain & Sub-Collections
+    match /teachers/{teacherId} {
+      allow get: if isOwner(teacherId);
+      allow list: if false; // Blanket teacher enumeration strictly forbidden
+      allow create: if isOwner(teacherId) && isValidTeacher(incoming());
+      allow update: if isOwner(teacherId) && isValidTeacher(incoming());
+      allow delete: if false;
+
+      // Lessons Sub-Collection
+      match /lessons/{lessonId} {
+        allow get, list: if isOwner(teacherId);
+        allow create: if isOwner(teacherId) && isValidId(lessonId) && isValidLesson(incoming(), teacherId);
+        allow update: if isOwner(teacherId) && isValidId(lessonId) && isValidLesson(incoming(), teacherId) && incoming().teacher_id == existing().teacher_id;
+        allow delete: if isOwner(teacherId);
+      }
+
+      // Quizzes Sub-Collection
+      match /quizzes/{quizId} {
+        allow get, list: if isOwner(teacherId);
+        allow create: if isOwner(teacherId) && isValidId(quizId) && isValidQuiz(incoming(), teacherId);
+        allow update: if isOwner(teacherId) && isValidId(quizId) && isValidQuiz(incoming(), teacherId) && incoming().teacher_id == existing().teacher_id;
+        allow delete: if isOwner(teacherId);
+      }
+
+      // Homework Sub-Collection
+      match /homework/{homeworkId} {
+        allow get, list: if isOwner(teacherId);
+        allow create: if isOwner(teacherId) && isValidId(homeworkId) && isValidHomework(incoming(), teacherId);
+        allow update: if isOwner(teacherId) && isValidId(homeworkId) && isValidHomework(incoming(), teacherId) && incoming().teacher_id == existing().teacher_id;
+        allow delete: if isOwner(teacherId);
+      }
+
+      // Timetable Sub-Collection
+      match /timetable/{slotId} {
+        allow get, list: if isOwner(teacherId);
+        allow create: if isOwner(teacherId) && isValidId(slotId) && isValidTimetable(incoming(), teacherId);
+        allow update: if isOwner(teacherId) && isValidId(slotId) && isValidTimetable(incoming(), teacherId) && incoming().teacher_id == existing().teacher_id;
+        allow delete: if isOwner(teacherId);
+      }
+
+      // Custom Classes & Subjects
+      match /classes/{classId} {
+        allow read, write: if isOwner(teacherId);
+      }
+
+      match /subjects/{subjectId} {
+        allow read, write: if isOwner(teacherId);
+      }
+    }
+  }
+}

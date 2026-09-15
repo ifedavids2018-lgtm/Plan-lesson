@@ -227,7 +227,15 @@ export const CreateLessonView: React.FC<CreateLessonViewProps> = ({ onLessonGene
       onNavigate('editor', saved.id);
     } catch (err: any) {
       console.error('Generation error:', err);
-      const msg = err.message || 'We could not generate your lesson plan. Please check your connection and try again.';
+      let msg = 'We could not generate your lesson plan. Please check your connection and try again.';
+      if (typeof err?.message === 'string') {
+        try {
+          const parsed = JSON.parse(err.message);
+          if (parsed.error) msg = parsed.error;
+        } catch {
+          msg = err.message;
+        }
+      }
       setErrorMessage(msg);
       onShowToast?.(msg, 'error');
     } finally {

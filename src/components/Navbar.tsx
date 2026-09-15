@@ -11,6 +11,8 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate, onOpenAuth }) => {
   const { teacher, logout } = useAuth();
+  const teacherName = teacher?.name?.trim();
+  const teacherSchool = teacher?.school_name?.trim();
 
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-2xs">
@@ -33,7 +35,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate, onOpenA
               </span>
             </div>
             <p className="text-[11px] text-slate-500 font-medium truncate max-w-[180px] sm:max-w-xs">
-              {teacher?.school_name || 'Primary & Secondary Schools'}
+              {teacherSchool || 'Nigerian Primary & Secondary Schools'}
             </p>
           </div>
         </div>
@@ -50,10 +52,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate, onOpenA
                 title="View Teacher Profile"
               >
                 <div className="w-7 h-7 rounded-full bg-blue-100 text-blue-800 flex items-center justify-center font-bold text-xs">
-                  {teacher.name.charAt(0)}
+                  {teacherName ? teacherName.charAt(0).toUpperCase() : 'T'}
                 </div>
                 <span className="hidden md:inline font-medium text-slate-800">
-                  {teacher.name}
+                  {teacherName || 'Teacher'}
                 </span>
               </button>
             </div>

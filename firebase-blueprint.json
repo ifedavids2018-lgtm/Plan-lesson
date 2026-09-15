@@ -1,0 +1,139 @@
+{
+  "entities": {
+    "Teacher": {
+      "title": "Teacher Profile",
+      "description": "Profile information and settings for an individual teacher",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 200 },
+        "email": { "type": "string", "maxLength": 200 },
+        "school_name": { "type": "string", "maxLength": 250 },
+        "role": { "type": "string", "maxLength": 50 },
+        "subscription_plan": { "type": "string", "maxLength": 50 },
+        "subjects_taught": { "type": "array" },
+        "classes_taught": { "type": "array" },
+        "curriculum": { "type": "string", "maxLength": 150 },
+        "created_at": { "type": "string", "maxLength": 100 },
+        "updated_at": { "type": "string", "maxLength": 100 }
+      },
+      "required": ["id", "email"]
+    },
+    "LessonPlan": {
+      "title": "Lesson Plan",
+      "description": "Curriculum-aligned lesson note created and owned by a teacher",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "teacher_id": { "type": "string", "maxLength": 128 },
+        "class_name_snapshot": { "type": "string", "maxLength": 100 },
+        "subject_name_snapshot": { "type": "string", "maxLength": 100 },
+        "topic": { "type": "string", "maxLength": 300 },
+        "duration_option": { "type": "string", "maxLength": 50 },
+        "duration_minutes_custom": { "type": "number" },
+        "lesson_date": { "type": "string", "maxLength": 50 },
+        "term": { "type": "string", "maxLength": 50 },
+        "week": { "type": "number" },
+        "learning_objectives": { "type": "array" },
+        "previous_knowledge": { "type": "string", "maxLength": 5000 },
+        "instructional_materials": { "type": "array" },
+        "introduction": { "type": "string", "maxLength": 5000 },
+        "lesson_content": { "type": "string", "maxLength": 20000 },
+        "teaching_activities": { "type": "array" },
+        "student_activities": { "type": "array" },
+        "assessment": { "type": "string", "maxLength": 5000 },
+        "conclusion": { "type": "string", "maxLength": 5000 },
+        "homework_summary": { "type": "string", "maxLength": 5000 },
+        "status": { "type": "string", "maxLength": 50 },
+        "is_ai_generated": { "type": "boolean" },
+        "created_at": { "type": "string", "maxLength": 100 },
+        "updated_at": { "type": "string", "maxLength": 100 }
+      },
+      "required": ["id", "teacher_id", "topic", "class_name_snapshot", "subject_name_snapshot"]
+    },
+    "Quiz": {
+      "title": "Quiz Assessment",
+      "description": "Classroom test or quiz generated and saved by a teacher",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "teacher_id": { "type": "string", "maxLength": 128 },
+        "lesson_plan_id": { "type": "string", "maxLength": 128 },
+        "title": { "type": "string", "maxLength": 300 },
+        "topic": { "type": "string", "maxLength": 300 },
+        "class_name": { "type": "string", "maxLength": 100 },
+        "subject_name": { "type": "string", "maxLength": 100 },
+        "question_type": { "type": "string", "maxLength": 50 },
+        "difficulty": { "type": "string", "maxLength": 50 },
+        "question_count": { "type": "number" },
+        "questions": { "type": "array" },
+        "created_at": { "type": "string", "maxLength": 100 },
+        "updated_at": { "type": "string", "maxLength": 100 }
+      },
+      "required": ["id", "teacher_id", "title", "questions"]
+    },
+    "Homework": {
+      "title": "Homework Assignment",
+      "description": "Homework and take-home assignments saved by a teacher",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "teacher_id": { "type": "string", "maxLength": 128 },
+        "lesson_plan_id": { "type": "string", "maxLength": 128 },
+        "title": { "type": "string", "maxLength": 300 },
+        "topic": { "type": "string", "maxLength": 300 },
+        "class_name": { "type": "string", "maxLength": 100 },
+        "subject_name": { "type": "string", "maxLength": 100 },
+        "homework_type": { "type": "string", "maxLength": 50 },
+        "difficulty": { "type": "string", "maxLength": 50 },
+        "instructions": { "type": "string", "maxLength": 5000 },
+        "questions": { "type": "array" },
+        "created_at": { "type": "string", "maxLength": 100 },
+        "updated_at": { "type": "string", "maxLength": 100 }
+      },
+      "required": ["id", "teacher_id", "title", "questions"]
+    },
+    "TimetableSlot": {
+      "title": "Timetable Slot",
+      "description": "Teaching timetable schedule entry for an individual teacher",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "teacher_id": { "type": "string", "maxLength": 128 },
+        "day_of_week": { "type": "string", "maxLength": 50 },
+        "start_time": { "type": "string", "maxLength": 20 },
+        "end_time": { "type": "string", "maxLength": 20 },
+        "class_name": { "type": "string", "maxLength": 100 },
+        "subject_name": { "type": "string", "maxLength": 100 },
+        "room": { "type": "string", "maxLength": 100 },
+        "lesson_plan_id": { "type": "string", "maxLength": 128 },
+        "lesson_title": { "type": "string", "maxLength": 300 },
+        "created_at": { "type": "string", "maxLength": 100 },
+        "updated_at": { "type": "string", "maxLength": 100 }
+      },
+      "required": ["id", "teacher_id", "day_of_week", "start_time", "end_time", "class_name", "subject_name"]
+    }
+  },
+  "firestore": {
+    "/teachers/{teacherId}": {
+      "schema": "Teacher",
+      "description": "Individual teacher profile and settings document. Isolated strictly to the authenticated owner."
+    },
+    "/teachers/{teacherId}/lessons/{lessonId}": {
+      "schema": "LessonPlan",
+      "description": "Lesson plans authored by the authenticated teacher."
+    },
+    "/teachers/{teacherId}/quizzes/{quizId}": {
+      "schema": "Quiz",
+      "description": "Quizzes generated and managed by the authenticated teacher."
+    },
+    "/teachers/{teacherId}/homework/{homeworkId}": {
+      "schema": "Homework",
+      "description": "Homework assignments created and owned by the authenticated teacher."
+    },
+    "/teachers/{teacherId}/timetable/{slotId}": {
+      "schema": "TimetableSlot",
+      "description": "Timetable periods and weekly schedule created by the authenticated teacher."
+    }
+  }
+}

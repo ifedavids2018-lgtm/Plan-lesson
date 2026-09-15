@@ -110,7 +110,7 @@ export const HomeworkGeneratorView: React.FC<HomeworkGeneratorViewProps> = ({
 
       const newHw: Homework = {
         id: `hw-${Date.now()}`,
-        teacher_id: teacher?.id || 'demo-teacher',
+        teacher_id: teacher?.id || 'teacher-demo-001',
         lesson_plan_id: selectedLessonId || undefined,
         title: data.title || `${className} ${subject} Homework: ${topic}`,
         topic: topic.trim(),

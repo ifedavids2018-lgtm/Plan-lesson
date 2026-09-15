@@ -60,7 +60,7 @@ export function generateLessonPlanPDF(lesson: LessonPlan, teacher?: TeacherProfi
   // Row 1
   doc.text('TEACHER:', col1, cursorY + 6);
   doc.setFont('helvetica', 'normal');
-  doc.text(teacher?.name || 'Mrs. Aisha Ibrahim', col1 + 18, cursorY + 6);
+  doc.text(teacher?.name?.trim() || 'Teacher', col1 + 18, cursorY + 6);
 
   doc.setFont('helvetica', 'bold');
   doc.text('CLASS:', col2, cursorY + 6);

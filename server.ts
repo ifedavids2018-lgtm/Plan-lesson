@@ -65,10 +65,10 @@ function initializeDatabase(): DatabaseSchema {
     teachers: [
       {
         id: demoTeacherId,
-        name: 'Mrs. Aisha Ibrahim',
-        email: 'aisha.ibrahim@school.ng',
+        name: '',
+        email: 'teacher@school.ng',
         password_hash: 'password123',
-        school_name: 'ABC Secondary School',
+        school_name: '',
         role: 'teacher',
         subscription_plan: 'free',
         subjects_taught: ['Biology', 'Basic Science'],
@@ -394,7 +394,7 @@ function getGeminiClient(): GoogleGenAI | null {
   return new GoogleGenAI({ apiKey });
 }
 
-function withTimeout<T>(promise: Promise<T>, ms: number = 8500): Promise<T> {
+function withTimeout<T>(promise: Promise<T>, ms: number = 30000): Promise<T> {
   return new Promise((resolve, reject) => {
     const timer = setTimeout(() => reject(new Error('AI request timed out')), ms);
     promise
@@ -457,8 +457,11 @@ app.post('/api/auth/login', (req, res) => {
     return res.status(400).json({ error: 'Email and password are required.' });
   }
 
+  const normalizedEmail = email.toLowerCase();
   const teacher = db.teachers.find(
-    t => t.email.toLowerCase() === email.toLowerCase() && t.password_hash === password
+    t => (t.email.toLowerCase() === normalizedEmail ||
+         (normalizedEmail === 'aisha.ibrahim@school.ng' && t.id === 'teacher-demo-001')) &&
+         t.password_hash === password
   );
 
   if (!teacher) {
@@ -794,7 +797,7 @@ You must return structured JSON strictly matching this schema:
 
       const response = await withTimeout(
         ai.models.generateContent({
-          model: 'gemini-flash-latest',
+          model: 'gemini-2.5-flash',
           contents: prompt,
           config: {
             responseMimeType: 'application/json',
@@ -931,13 +934,13 @@ Return JSON with a single key "new_content" that contains the updated content in
 
       const response = await withTimeout(
         ai.models.generateContent({
-          model: 'gemini-flash-latest',
+          model: 'gemini-2.5-flash',
           contents: prompt,
           config: {
             responseMimeType: 'application/json',
           },
         }),
-        8500
+        30000
       );
 
       const parsed = JSON.parse(response.text || '{}');
@@ -1009,7 +1012,7 @@ Return JSON strictly matching this schema:
 
       const response = await withTimeout(
         ai.models.generateContent({
-          model: 'gemini-flash-latest',
+          model: 'gemini-2.5-flash',
           contents: prompt,
           config: {
             responseMimeType: 'application/json',
@@ -1203,7 +1206,7 @@ Return structured JSON strictly conforming to:
 
       const response = await withTimeout(
         ai.models.generateContent({
-          model: 'gemini-flash-latest',
+          model: 'gemini-2.5-flash',
           contents: prompt,
           config: {
             responseMimeType: 'application/json',

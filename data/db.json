@@ -2,10 +2,10 @@
   "teachers": [
     {
       "id": "teacher-demo-001",
-      "name": "Mrs. Aisha Ibrahim",
-      "email": "aisha.ibrahim@school.ng",
+      "name": "",
+      "email": "teacher@school.ng",
       "password_hash": "password123",
-      "school_name": "ABC Secondary School",
+      "school_name": "",
       "role": "teacher",
       "subscription_plan": "free",
       "subjects_taught": [
@@ -19,7 +19,7 @@
       ],
       "curriculum": "Nigerian Curriculum",
       "created_at": "2026-09-02T15:53:27.667Z",
-      "updated_at": "2026-09-02T15:53:27.667Z"
+      "updated_at": "2026-09-07T16:35:35.725Z"
     }
   ],
   "classes": [
@@ -224,6 +224,43 @@
       "is_ai_generated": true,
       "created_at": "2026-09-02T15:53:27.667Z",
       "updated_at": "2026-09-02T15:53:27.667Z"
+    },
+    {
+      "id": "lesson-1789476612023-jw7z2l",
+      "teacher_id": "teacher-demo-001",
+      "class_name_snapshot": "SS1",
+      "subject_name_snapshot": "Biology",
+      "topic": "Cell Structure and Functions",
+      "duration_option": "40",
+      "duration_minutes_custom": null,
+      "lesson_date": "2026-09-15",
+      "term": "First Term",
+      "week": 1,
+      "lesson_number": 1,
+      "learning_objectives_input": "",
+      "previous_knowledge_input": "",
+      "teaching_method": "Discussion & Demonstration",
+      "resources_input": "",
+      "curriculum_standard": "NERDC Curriculum",
+      "teacher_notes": "",
+      "learning_objectives": [
+        "Identify parts of a cell"
+      ],
+      "previous_knowledge": "",
+      "instructional_materials": [],
+      "introduction": "",
+      "lesson_content": "",
+      "teaching_activities": [],
+      "student_activities": [
+        "Observe diagrams"
+      ],
+      "assessment": "",
+      "conclusion": "",
+      "homework_summary": "",
+      "status": "saved",
+      "is_ai_generated": true,
+      "created_at": "2026-09-15T12:50:12.023Z",
+      "updated_at": "2026-09-15T12:50:12.023Z"
     }
   ],
   "lesson_plan_revisions": [],
@@ -491,6 +528,34 @@
       "lesson_title": null,
       "created_at": "2026-09-02T15:53:27.668Z",
       "updated_at": "2026-09-02T15:53:27.668Z"
+    },
+    {
+      "id": "slot-1788797900385-ih7y8g",
+      "teacher_id": "teacher-demo-001",
+      "day_of_week": "wednesday",
+      "start_time": "09:30",
+      "end_time": "10:05",
+      "class_name": "JSS3",
+      "subject": "Basic science",
+      "subject_name": "Basic science",
+      "lesson_plan_id": null,
+      "lesson_title": null,
+      "created_at": "2026-09-07T16:18:20.385Z",
+      "updated_at": "2026-09-07T16:18:20.385Z"
+    },
+    {
+      "id": "slot-1788797958564-7h6vsp",
+      "teacher_id": "teacher-demo-001",
+      "day_of_week": "friday",
+      "start_time": "12:00",
+      "end_time": "12:45",
+      "class_name": "SS1",
+      "subject": "Biology",
+      "subject_name": "Biology",
+      "lesson_plan_id": null,
+      "lesson_title": null,
+      "created_at": "2026-09-07T16:19:18.564Z",
+      "updated_at": "2026-09-07T16:19:18.564Z"
     }
   ],
   "export_events": []

@@ -125,7 +125,7 @@ export const QuizGeneratorView: React.FC<QuizGeneratorViewProps> = ({
 
       const newQuiz: Quiz = {
         id: `quiz-${Date.now()}`,
-        teacher_id: teacher?.id || 'demo-teacher',
+        teacher_id: teacher?.id || 'teacher-demo-001',
         lesson_plan_id: selectedLessonId || undefined,
         title: data.title || `${className} ${subject} Quiz: ${topic}`,
         topic: topic.trim(),

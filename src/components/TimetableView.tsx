@@ -132,7 +132,7 @@ export const TimetableView: React.FC<TimetableViewProps> = ({ onNavigate, onShow
     try {
       const slotData: Partial<TimetableSlot> = {
         id: editingSlot?.id,
-        teacher_id: teacher?.id || 'demo-teacher',
+        teacher_id: teacher?.id || 'teacher-demo-001',
         day_of_week: day as any,
         start_time: startTime,
         end_time: endTime,

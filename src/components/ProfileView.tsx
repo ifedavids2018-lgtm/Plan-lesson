@@ -79,11 +79,11 @@ export const ProfileView: React.FC<ProfileViewProps> = ({ onShowToast, onOpenAut
       <form onSubmit={handleSave} className="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-2xs space-y-5">
         <div className="flex items-center gap-4 pb-4 border-b border-slate-100">
           <div className="w-14 h-14 rounded-2xl bg-blue-700 text-white flex items-center justify-center font-black text-xl shadow-md shadow-blue-500/20">
-            {name.charAt(0) || 'T'}
+            {name.trim() ? name.trim().charAt(0).toUpperCase() : 'T'}
           </div>
           <div>
-            <h2 className="font-bold text-base text-slate-900">{name || 'Teacher'}</h2>
-            <p className="text-xs text-slate-500">{teacher.email}</p>
+            <h2 className="font-bold text-base text-slate-900">{name.trim() || 'Teacher'}</h2>
+            <p className="text-xs text-slate-500">{teacher.email || 'teacher@school.ng'}</p>
           </div>
         </div>
 
@@ -93,10 +93,12 @@ export const ProfileView: React.FC<ProfileViewProps> = ({ onShowToast, onOpenAut
             type="text"
             value={name}
             onChange={e => setName(e.target.value)}
-            className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm font-medium"
-            placeholder="e.g. Mrs. Aisha Ibrahim"
-            required
+            className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm font-medium focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            placeholder="e.g. Mr. David Okon, Dr. Adeyemi, Mrs. Ibrahim"
           />
+          <p className="text-[11px] text-slate-500 mt-1">
+            This name appears dynamically in your home screen greeting ("Welcome, {name.trim() || 'Teacher'}"). If left blank, you will be greeted as "Welcome, Teacher".
+          </p>
         </div>
 
         <div>
@@ -105,12 +107,11 @@ export const ProfileView: React.FC<ProfileViewProps> = ({ onShowToast, onOpenAut
             type="text"
             value={schoolName}
             onChange={e => setSchoolName(e.target.value)}
-            className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm font-medium"
-            placeholder="e.g. Government Secondary School, Garki, Abuja"
-            required
+            className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm font-medium focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            placeholder="e.g. Kings College, Lagos or Government Secondary School, Garki"
           />
-          <p className="text-[11px] text-slate-400 mt-1">
-            This name will be displayed at the top header of all exported lesson notes.
+          <p className="text-[11px] text-slate-500 mt-1">
+            Displays on your dashboard welcome banner and in official PDF lesson plan headers.
           </p>
         </div>
 
